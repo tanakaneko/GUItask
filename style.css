@@ -1,0 +1,93 @@
+﻿/*-----本体-----*/
+body{
+background-color: #fefefe;
+}
+
+/*-------フォントサイズ-------*/
+h1 { font-size: 50px; }
+h2 { font-size: 24px; }
+h3 { font-size: 20px; }
+
+/*-------画面上部のバー-------*/
+nav {
+	width: 100%;
+	height: 70px;
+	background-color: #696969;
+	padding-top: 5px;
+	box-sizing: border-box;
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+}
+
+.infoBar{
+	color:white;
+	margin-left: 20px;
+}
+
+/*-----ジャンプ位置調整-----*/
+a.anchor{
+	display: block;
+	padding-top: 70px;
+	margin-top: -70px;
+}
+
+/*-------レイアウト、装飾用-------*/
+.title{
+	margin-top: 70px;
+	margin-left: 20px;
+}
+
+.subTitle{
+	background :#4e454a;
+	color:white;
+	margin: 10px;
+	padding: 10px;
+}
+
+.text{
+	position: relative;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.menuList{
+	position: relative;
+	left: 20px;
+}
+
+.item{
+	background :#666c67;
+	color:white;
+	margin: 10px;
+	padding: 10px;
+}
+
+.menuBox1{
+	width: 300px;
+  height: 100px;
+}
+
+.codebox1 {
+	margin: 20px 0;
+	padding: 10px 20px;
+	border: solid 5px #abb1ad;
+	background:#202020;
+	color: white;
+}
+
+/*-----コードの選択ボックス-----*/
+.choiceBox{
+	position: relative;
+	border: solid 2px black;
+	color: black;
+	background:white;
+	left: 20px;
+	padding: 10px;
+}
+
+/*-----選択範囲-----*/
+span{
+	color:white;
+}
