@@ -1,0 +1,416 @@
+<html>
+<head>
+  <meta charset="utf-8">
+<title>GUIプログラミング自由課題</title>
+<link rel = "stylesheet", href="style.css">
+</head>
+<body>
+  <nav>
+  <h2 class="infoBar">22FI036　金子楓那汰　　GUIプログラミング自由課題『ToDoタイマー』</h2>
+  </nav>
+  <br>
+  <h1 class="title">ToDoタイマー</h1>
+
+  <h2 class="subTitle">プログラムの概要</h2>
+  <p class="text">
+    このプログラムはタイマー機能を持つToDoリストのプログラムです。<br>
+    タスクをストップウォッチのように実行し、そのタスクに取り組んだ時間が記録できます。
+    また、サブタスクを設定することで、タスクを分割し、それぞれの作業に取り組んだ時間も記録できます。
+    ユーザーはタスクの制作、編集、実行ができます。また、テキストファイルへの書き出し、読み込みが可能で、データを保存することができます。
+  </p>
+
+  <h2 class="subTitle">利用方法</h2>
+  <ol type="1">
+  <details>
+    <summary class="item">プログラムの起動</summary>
+    <p class="text">
+      ToDoTimer.javaを実行してプログラムを起動します。最初はメインメニューが開きます。
+    </p>
+    <img border="0" src="MainMenuScs.png" width="294" height="347" alt="mainmenu">
+  </details>
+  <details>
+    <summary class="item">タスクの追加</summary>
+    <p class="text">
+      タスクの追加は追加メニューで行います。追加メニューはメインメニューの「タスクの追加ボタン」または、
+      メニューバーの「メニュー→タスクの追加」から開くことができます。<br>
+      各項目を入力し、確定ボタンを押すとタスクが追加され、メインメニューに戻ります。
+      必須項目はタスク名だけで、サブタスクはなしでもタスクを作ることができます。
+    </p>
+    <img border="0" src="AddMenuScs1.png" width="294" height="347" alt="addmenu1">
+    <img border="0" src="AddMenuScs2.png" width="294" height="347" alt="addmenu2">
+    <img border="0" src="MainMenuScsT.png" width="294" height="347" alt="mainmenutask">
+  </details>
+  <details>
+    <summary class="item">タスクの編集</summary>
+    <p class="text">
+      タスクの編集は編集メニューで行います。編集メニューはメインメニューの各タスクの「編集ボタン」（鉛筆のアイコン）または、
+      メニューバーの「メニュー→タスクの編集」からタスクを選択して開くことができます。<br>
+      各項目の内容を変更し、変更の適用ボタンを押すと、タスクの内容が更新されメインメニューに戻ります。
+    </p>
+    <img border="0" src="EditMenuScsBefore.png" width="294" height="347" alt="editBefore">
+    <img border="0" src="EditMenuScsAfter.png" width="294" height="347" alt="editBefore">
+    <img border="0" src="MainMenuScsE.png" width="294" height="347" alt="mainmenuedit">
+  </details>
+  <details>
+    <summary class="item">タスクの実行</summary>
+    <p class="text">
+      タスクの実行はタイマーメニューで行います。タイマーメニューはメインメニューの各タスクの「開始ボタン」または、
+      メニューバーの「メニュー→タスクの実行」からタスクを選択して開くことができます。<br>
+      タイマーは「スタート・ストップボタン」を押すと開始し、もう一度押すと停止します。
+      サブタスクのタイマーを起動した場合、メインのタイマーも連動して起動され、サブタスクに取り組んだ時間もタスクの実行時間として計測されます。
+      また、サブタスクのタイマーの計測中にほかのサブタスクのタイマーを起動すると前に計測されていたタイマーは停止します。
+      そのため、サブタスクは同時に一つのみ計測できます。
+      また、メインのタイマーを停止した場合はその時計測中だったサブタスクのタイマーも停止します。
+      そのため、タスクの計測を完全に停止したい場合はメインのタイマーを停止してください。
+      メインタイマーのみ計測することも可能です。全てのタスクが停止した状態でメインのタイマーを起動するか、
+      起動中のサブタスクを停止させることでメインのタイマーのみで実行できます。<br>
+      タスクの実行をやめ、別のメニューに移動したい場合は、メニューバーの「メニュー」から任意のほかのメニューに移動してください。
+      その際、タイマーが動いていても自動で停止されます。
+    </p>
+    <img border="0" src="TimerScsDefault.png" width="294" height="347" alt="timer">
+    <img border="0" src="TimerScsSub1.png" width="294" height="347" alt="timerS1">
+    <img border="0" src="TimerScsSub2.png" width="294" height="347" alt="timerS2">
+    <img border="0" src="TimerScsMain.png" width="294" height="347" alt="timerM">
+  </details>
+  <details>
+    <summary class="item">データの保存、読み込み</summary>
+    <p class="text">
+      メニューバーの「ファイル」からデータの保存や読み込みができます。
+    </p>
+    <h3 class="text">ファイルの読み込み</h3>
+    <p class="text">
+      メニューバーの「ファイル→開く」を押すとファイルダイアログが開きます。
+      ファイルダイアログからテキストファイルを選択するとそのファイルが開かれます。
+    </p>
+    <img border="0" src="openScs1.png" width="294" height="347" alt="open1">
+    <img border="0" src="openScs2.png" width="294" height="347" alt="open2">
+    <img border="0" src="openScs3.png" width="294" height="347" alt="open3">
+    <img border="0" src="openScs4.png" width="294" height="347" alt="open4">
+    <h3 class="text">データの保存</h3>
+    <p class="text">
+      メニューバーの「ファイル→保存」を押すとファイルダイアログが開きます。
+      ファイルダイアログで保存先とファイル名を選択するとそこに保存されます。
+    </p>
+    <img border="0" src="save1.png" width="294" height="347" alt="save1">
+    <img border="0" src="save2.png" width="294" height="347" alt="save2">
+    <img border="0" src="save3.png" width="294" height="347" alt="save3">
+    <img border="0" src="save4.png" width="294" height="347" alt="save4">
+    <img border="0" src="save5.png" width="294" height="347" alt="save5">
+    <img border="0" src="save6.png" width="294" height="347" alt="save6">
+  </details>
+  </ol>
+
+  <h2 class="subTitle">プログラムの構成</h2>
+  <div class="text">
+    <h3 class="text">主なクラス</h3>
+    <h3 class="item">ToDoTimer.java</h3>
+      <p class="text">
+        最初に起動するプログラムでメイン関数とほかのメニューに切り替える関数、メニューバーのクラスを持ちます。
+        JFrameを拡張しておりContentPaneの中身を変えることでメニューを切り替えます。
+      </p>
+      <p class="text">リンク：<a href="../ToDoTimer.java">ToDoTimer.java</a></p>
+      
+      <h3 class="item">MainMenu.java</h3>
+      <p class="text">
+        メインメニューに関するメソッドやクラスを持つクラスです。コンストラクタでメインメニューに配置するすべてのコンポーネントの作成と設定をしています。
+      </p>
+      <p class="text">リンク：<a href="../MainMenu.java">MainMenu.java</a></p>
+          
+      <h3 class="item">AddMenu.java</h3>
+      <p class="text">
+        追加メニューに関するメソッドやクラスを持つクラスです。
+      </p>
+      <p class="text">リンク：<a href="../AddMenu.java">AddMenu.java</a></p>
+
+      <h3 class="item">EditMenu.java</h3>
+      <p class="text">
+        編集メニューに関するメソッドやクラスを持つクラスです。
+      </p>
+      <p class="text">リンク：<a href="../EditMenu.java">EditMenu.java</a></p>
+      
+      <h3 class="item">TimerMenu.java</h3>
+      <p class="text">
+        タイマーメニューに関するメソッドやクラスを持つクラスです。
+      </p>
+      <p class="text">リンク：<a href="../TimerMenu.java">TimerMenu.java</a></p>
+
+      <h3 class="item">Task.java</h3>
+      <p class="text">
+        一つのタスクのクラスです。タスクに関する情報を変数で保持します。
+      </p>
+      <p class="text">リンク：<a href="../Task.java">Task.java</a></p>
+
+      <h3 class="item">TaskList.java</h3>
+      <p class="text">
+        複数のタスクが集約されたクラスです。ファイルを開く処理とファイルに保存する処理もここで行います。
+      </p>
+      <p class="text">リンク：<a href="../TaskList.java">TaskList.java</a></p>
+
+      <hr>
+      <h3 class="text">お借りしたクラス</h3>
+      <h3 class="item">RoundedCornerButton.java</h3>
+      <p class="text">
+        角の丸いJButtonのクラスです。通常のJButtonと同じようにインスタンス化して使用できます。
+      </p>
+      <p class="text">
+        リンク：<a href="../RoundedCornerButton.java">RoundedCornerButton.java</a><br>
+        提供源：<a href="https://ateraimemo.com/Swing/RoundButton.html">JButtonの形を変更 - Java Swing Tips</a>
+      </p>
+  </div>
+  
+  
+  <h2 class="subTitle">GUIの構成</h2>
+  <ul type=square>
+  <details>
+    <summary class="item">メインメニュー</summary>
+    <br>
+    <img border="0" src="mainMenu.png" align="left" width="640" height="360" alt="mainmenu" >
+    <ol type="①" class="menuList">
+      <li><a href="#file">ファイルメニュー</a>
+      <li><a href="#menu">メニューメニュー</a>
+      <li>タスクのリスト
+      <li>各タスクの名前
+      <li>各タスクの削除ボタン
+      <li>各タスクの編集ボタン
+      <li>各タスクの開始ボタン
+      <li>タスクの追加ボタン
+    </ol>
+    <br clear="left">
+    <h3 class="text">タスクのリスト</h3>
+    <p class="text">
+      JPanelで実装されており、タスクを追加するたびに、そのタスクのJPanelが追加されます。
+      タスク数が多くなり、パネルの大きさを超えるとスクロールが表示されます。<br>
+      タスクの順番は追加、編集順で新しいものほど下にいきます。
+    </p>
+    <h3 class="text">各タスク</h3>
+    <p class="text">
+      JPanelで実装されており、タスク名のJLabel、タスク削除のJButton、タスク編集のJButton、タスク実行のJButtonを持ちます。
+    </p>
+    <h3 class="text">タスクの追加ボタン</h3>
+    <p class="text">
+      JButtonで実装されており、クリックするとタスクの追加メニューに移動します。   
+    </p>
+  </details>
+  <details>
+    <summary class="item">タスク追加メニュー</summary>
+    <br>
+    <img border="0" src="addMenu.png" align="left" width="640" height="360" alt="mainmenu" >
+    <ol type="①" class="menuList">
+      <li><a href="#file">ファイルメニュー</a>
+      <li><a href="#menu">メニューメニュー</a>
+      <li>タスク名入力フィールド
+      <li>サブタスクの削除ボタン
+      <li>サブタスクの編集ボタン
+      <li>サブタスクの追加ボタン
+      <li>タスクの種類のリスト
+      <li>タスクの種類入力フィールド
+      <li>タスクの種類追加ボタン
+      <li>追加キャンセルボタン
+      <li>追加確定ボタン
+    </ol>
+    <br clear="left">
+    <h3 class="text">タスク名入力フィールド</h3>
+    <p class="text">
+      JTextFieldで実装されており、追加が確定されると、ここへの入力が取得され、タスク名として保存されます。
+      初期設定では、空になっています。
+    </p>
+    <h3 class="text">サブタスクのリスト</h3>
+    <p class="text">
+      JPanelで実装されており、サブタスク名のJLabel、サブタスク削除のJButton、サブタスク編集のJButton、
+      を要素として持つJPanelをサブタスクの数だけ持ちます。
+    </p>
+    <h3 class="text">タスクの種類のリスト</h3>
+    <p class="text">
+      JListで実装されており、タスクの種類を文字列として持ちます。選択した文字列がそのタスクの種類として設定されます。
+      初期設定では、"未設定"が選択されています。
+    </p>
+    <h3 class="text">タスクの種類の追加</h3>
+    <p class="text">
+      JTextFieldに種類を入力し、追加ボタンを押すとリストに種類が追加されます。
+    </p>
+  </details>
+  <details>
+    <summary class="item">タスク編集メニュー</summary>
+    <br>
+    <img border="0" src="editMenu.png" align="left" width="640" height="360" alt="mainmenu" >
+    <ol type="①" class="menuList">
+      <li><a href="#file">ファイルメニュー</a>
+      <li><a href="#menu">メニューメニュー</a>
+      <li>タスク名入力フィールド
+      <li>サブタスクの削除ボタン
+      <li>サブタスクの編集ボタン
+      <li>サブタスクの追加ボタン
+      <li>タスクの種類のリスト
+      <li>タスクの種類入力フィールド
+      <li>タスクの種類追加ボタン
+      <li>編集キャンセルボタン
+      <li>編集の適用ボタン
+    </ol>
+    <br clear="left">
+    <h3 class="text">タスク名入力フィールド</h3>
+    <p class="text">
+      JTextFieldで実装されており、編集が適用されると、ここへの入力が取得され、タスク名として保存されます。
+      初期設定では、現在のタスク名が設定されます。
+    </p>
+    <h3 class="text">サブタスクのリスト</h3>
+    <p class="text">
+      JPanelで実装されており、サブタスク名のJLabel、サブタスク削除のJButton、サブタスク編集のJButton、
+      を要素として持つJPanelをサブタスクの数だけ持ちます。
+    </p>
+    <h3 class="text">タスクの種類のリスト</h3>
+    <p class="text">
+      JListで実装されており、タスクの種類を文字列として持ちます。選択した文字列がそのタスクの種類として設定されます。
+      初期設定では、現在のタスクの種類が選択されています。
+    </p>
+    <h3 class="text">タスクの種類の追加</h3>
+    <p class="text">
+      JTextFieldに種類を入力し、追加ボタンを押すとリストに種類が追加されます。
+    </p>
+  </details>
+  <details>
+    <summary class="item">タスクタイマーメニュー（実行メニュー）</summary>
+    <br>
+    <img border="0" src="TaskTimerMenu.png" align="left" width="640" height="360" alt="mainmenu" >
+    <ol type="①" class="menuList">
+      <li><a href="#file">ファイルメニュー</a>
+      <li><a href="#menu">メニューメニュー</a>
+      <li>タスク名
+      <li>タスクの種類
+      <li>タイマー
+      <li>スタート・ストップボタン
+      <li>サブタスクのタイマー
+      <li>サブタスクの名前
+      <li>サブタスクのスタート・ストップボタン
+    </ol>
+    <br clear="left">
+    <h3 class="text">タイマー</h3>
+    <p class="text">
+      タスクごとに独自のタイマーを持ち、それぞれ別々に時間を測ることができます。
+      タイマーはタイマーイベントで動作し、一秒毎に値を更新します。
+      表示は「000:00:00」で、左から時、分、秒です。最大999時間59分59秒間まで測れます。
+    </p>
+    <h3 class="text">タイマーのスタート・ストップボタン</h3>
+    <p class="text">
+      JButtonで実装されており、押すたびにスタート・ストップのアイコンが切り替わります。
+    </p>
+  </details>
+  <details>
+    <summary class="item">サブタスク追加・編集ダイアログ</summary>
+    <br>
+    <img border="0" src="addSubTask.png" align="left" width="640" height="194" alt="mainmenu" >
+    <ol type="①" class="menuList">
+      <li>タスク名入力フィールド
+      <li>タスクの種類のリスト
+      <li>タスクの種類入力フィールド
+      <li>タスクの種類追加ボタン
+      <li>キャンセルボタン
+      <li>確定ボタン
+    </ol>
+    <br clear="left">
+    <h3 class="text">タスク名入力フィールド</h3>
+    <p class="text">
+      JTextFieldで実装されており、追加および編集が確定されると、ここへの入力が取得され、タスク名として保存されます。
+      初期設定では、空になっています。
+    </p>
+    <h3 class="text">タスクの種類のリスト</h3>
+    <p class="text">
+      JListで実装されており、タスクの種類を文字列として持ちます。選択した文字列がそのタスクの種類として設定されます。
+      初期設定では、現在のタスクの種類が選択されています。
+    </p>
+    <h3 class="text">タスクの種類の追加</h3>
+    <p class="text">
+      JTextFieldに種類を入力し、追加ボタンを押すとリストに種類が追加されます。
+    </p>
+  </details>
+  <details>
+    <summary class="item">メニューバー</summary>
+    <a name="menubar" class="anchor"></a>
+    <p class="text">
+      ウィンドウ上部に表示されるメニューバーの内容は以下の通りです。<br>
+      JMenuBarで実装されており、押すと各アクションが実行されます。
+    </p>
+    <a name="file" class="anchor">
+      <h3 class="text">ファイルメニュー</h3>
+    </a>
+    <img border="0" src="file.png" align="left" width="158" height="179" alt="mainmenu" >
+    <ul class="menuList">
+      <li>開く：選択したテキストファイルからデータを読み込みます。
+      <li>保存：テキストファイルにデータを保存します。
+      <li>終了：プログラムを終了します。
+    </ul>
+    <br clear="left">
+    <a name="menu" class="anchor">
+      <h3 class="text">メニューメニュー</h3>
+    </a>
+    <img border="0" src="menu.png" align="left" width="275" height="263" alt="mainmenu" >
+    <ul class="menuList">
+      <li>メインメニュー：メインメニューに移動します。
+      <li>タスクタイマー：タスクの実行画面に移動します。
+      <li>タスクの追加　：タスクの追加メニューに移動します。
+      <li>タスクの編集　：タスクの編集メニューに移動します。
+    </ul>
+    <br clear="left">
+  </details>
+  </ul>
+
+  <h2 class="subTitle">工夫点</h2>
+  <h3 class="text">分かりやすいデザイン</h3>
+  <p class="text">
+    このプログラムを作る際、ユーザーが利用しやすいデザインにすることを心掛けました。
+    そのために、プログラムの制作に取り掛かる前にAdobeXDを利用して、先にデザインを考えました。
+    何のボタンかをわかりやすくするために、ボタンにアイコンを付け、
+    タスクごとにボタンを用意することで、ユーザーが直観的にタスクに対する特定のアクションを選択できるようにしました。
+    また、ラベルを使用して画面内の要素が何を表しているかを明確にしています。
+  </p>
+  <h3 class="text">ダイアログで確認を取る</h3>
+  <p class="text">
+    ダイアログでの確認もこのプログラムを作るうえでこだわった点の一つです。
+    ユーザーが取り消しのできない操作を実行しようとしている際は確認のダイアログを表示するようにし、誤操作を防いでいます。
+    また、プログラムにとって不都合な操作があったときも、エラーを知らせるダイアログを表示するようにしています。
+  </p>
+  <h3 class="text">拡張性</h3>
+  <p class="text">
+    機能の拡張が簡単にできることも工夫した点の一つです。
+    ToDoTimerクラスから各メニューのクラスを呼び出す仕組みになっているため、新しいメニューのクラスを用意するだけで新しい機能を付けることができます。
+    新しい機能の例としては、タスクの実行時間を記録する記録メニューなどさまざまなものが考えられるでしょう。
+    また、TaskクラスやTaskListクラスに変数を追加すれば一つのタスクが持つ情報を増やすこともできます。
+  </p>
+
+  <h2 class="subTitle">使用素材</h2>
+  <h3 class="text">追加ボタンアイコン</h3>
+  <img class="text" border="0" src="./plus.png" width="37" height="37" alt="plus" >
+  <p class="text">
+    提供源：<a href="https://icon-rainbow.com/%e3%83%97%e3%83%a9%e3%82%b9%e3%83%9e%e3%83%bc%e3%82%af%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3-1/">
+      icon-rainbow/プラスマークアイコン1
+    </a>
+  </p>
+  <h3 class="text">編集ボタンアイコン</h3>
+  <img class="text" border="0" src="./pencil.png" width="37" height="37" alt="pencil" >
+  <p class="text">
+    提供源：<a href="https://icon-rainbow.com/%e3%82%b7%e3%83%b3%e3%83%97%e3%83%ab%e3%81%aa%e3%81%88%e3%82%93%e3%81%b4%e3%81%a4%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e7%84%a1%e6%96%99%e7%b4%a0%e6%9d%90-12/">
+      icon-rainbow/シンプルなえんぴつのアイコン無料素材12
+    </a>
+  </p>
+  <h3 class="text">削除ボタンアイコン</h3>
+  <img class="text" border="0" src="./trashcan.png" width="37" height="37" alt="trashcan" >
+  <p class="text">
+    提供源：<a href="https://icon-rainbow.com/%e3%82%b4%e3%83%9f%e7%ae%b1%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e7%b4%a0%e6%9d%90-2/">
+      icon-rainbow/ゴミ箱のアイコン素材2
+    </a>
+  </p>
+  <h3 class="text">スタートボタンアイコン</h3>
+  <img class="text" border="0" src="./start.png" width="37" height="37" alt="start" >
+  <p class="text">
+    提供源：<a href="https://icon-rainbow.com/%e5%8b%95%e7%94%bb%e3%82%84%e9%9f%b3%e6%a5%bd%e3%81%ae%e5%86%8d%e7%94%9f%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e7%b4%a0%e6%9d%90/">
+      icon-rainbow/動画や音楽の再生ボタンのアイコン素材
+    </a>
+  </p>
+  <h3 class="text">ストップボタンアイコン</h3>
+  <img class="text" border="0" src="./stop.png" width="37" height="37" alt="stop" >
+  <p class="text">
+    提供源：<a href="https://icon-rainbow.com/%e5%8b%95%e7%94%bb%e3%82%84%e9%9f%b3%e6%a5%bd%e3%81%ae%e4%b8%80%e6%99%82%e5%81%9c%e6%ad%a2%e3%81%ae%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e7%b4%a0%e6%9d%90/">
+      icon-rainbow/動画や音楽の一時停止のアイコン素材
+    </a>
+  </p>
+</body>
+</html>
